@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Buscador</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
+    <link rel="shortcut icon" href="images/favicon.png" type="image/x-icon">
+    <style>
+        .btn-size{
+            width: 150px;
+        }
+        .btn-default{
+            background: linear-gradient(rgb(200, 200, 200), rgb(255, 255, 255));
+            border: 1px solid gray;
+            text-align: center;
+            padding: 5px;
+            border-radius: 5px;
+            box-shadow: 2px 2px 10px rgb(145, 145, 145);
+        }
+        .btn-default:hover{
+            background: linear-gradient(rgb(220, 220, 220), rgb(101, 185, 235));
+            position: relative;
+            top: -2px;            
+            box-shadow: 2px 2px 10px rgb(145, 145, 145);
+        }
+        .cdn{
+            text-decoration: none;
+            width: 250px !important;
+            padding: 3px 30px;
+            background: linear-gradient(rgb(230,230,230), rgb(255,255,255));
+            border: 1px solid rgb(200,200,200);
+            box-shadow: 1px 1px 2px black;
+            text-align: center;            
+            border-radius: 5px;
+            font-weight: bold;
+            color: rgb(100,100,100);
+            margin: 3px;
+        }
+        .cdn:hover{
+            text-decoration: none;
+            background: linear-gradient(rgb(240,240,240), rgb(255,255,255));
+            color: black;
+        }
+		.botao-texto{
+			text-decoration: none;
+			color: black;
+			font-size: .9em;
+		}
+    </style>
+</head>
+<body>
+<div class="container-fluid">            
+    <div class="m-3 p-3">
+        <h2><i class="fas fa-cog"></i> TRABALHO</h2>
+        <hr>
+            <div class="row">
+                
+                <!-- formulários -->
+                <div class="col-4">                        
+
+                    <!-- pesquisa no google -->
+                    <div class="form-inline form-group p-2">                            
+                        <input type="text" class="form-control mr-3" id="text_pesquisa_google" size="40">
+                        <button onclick="PesquisaGoogle()" id="btn_1" class="btn btn-primary btn-size text-left"><i class="fas fa-search mr-2"></i>Google</button>
+                    </div>
+                    <!-- pesquisa no google images -->
+                    <div class="form-inline form-group p-2">                            
+                        <input type="text" class="form-control mr-3" id="text_pesquisa_google_images" size="40">
+                        <button onclick="PesquisaGoogleImages()" class="btn btn-primary btn-size text-left"><i class="fas fa-search mr-2"></i>Google Images</button>
+                    </div>
+                    <!-- pesquisa no freepik -->
+                    <div class="form-inline form-group p-2">                            
+                        <input type="text" class="form-control mr-3" id="text_pesquisa_freepik" size="40">
+                        <button onclick="PesquisaFreepik()" class="btn btn-primary btn-size text-left"><i class="fas fa-search mr-2"></i>Freepiks</button>
+                    </div>
+
+					<!-- pesquisa no freepik -->
+                    <div class="form-inline form-group p-2">                            
+                        <input type="text" class="form-control mr-3" id="text_pesquisa_pixabay" size="40">
+                        <button onclick="PesquisaPixabay()" class="btn btn-primary btn-size text-left"><i class="fas fa-search mr-2"></i>Pixabay</button>
+                    </div>
+                    <hr>
+                    
+                    <!-- pesquisa no PHP -->
+                    <div class="form-inline form-group p-2">                            
+                        <input type="text" class="form-control mr-3" id="text_pesquisa_php" size="40">
+                        <button onclick="PesquisaPHP()" class="btn btn-secondary btn-size text-left"><i class="fas fa-search mr-2"></i>PHP</button>
+                    </div>
+
+                    <!-- pesquisa no developer HTML (Mozilla) -->
+                    <div class="form-inline form-group p-2">                            
+                        <input type="text" class="form-control mr-3" id="text_pesquisa_html" size="40">
+                        <button onclick="PesquisaHTML()" class="btn btn-secondary btn-size text-left"><i class="fas fa-search mr-2"></i>HTML</button>
+                    </div>
+
+                    <!-- pesquisa no developer CSS (Mozilla) -->
+                    <div class="form-inline form-group p-2">                            
+                        <input type="text" class="form-control mr-3" id="text_pesquisa_css" size="40">
+                        <button onclick="PesquisaCSS()" class="btn btn-secondary btn-size text-left"><i class="fas fa-search mr-2"></i>CSS</button>
+                    </div>
+
+                    <!-- pesquisa no developer JavaScript (Mozilla) -->
+                    <div class="form-inline form-group p-2">                            
+                        <input type="text" class="form-control mr-3" id="text_pesquisa_javascript" size="40">
+                        <button onclick="PesquisaJavascript()" class="btn btn-secondary btn-size text-left"><i class="fas fa-search mr-2"></i>Javascript</button>
+                    </div>
+
+                    <hr>
+
+                    <div class="form-inline form-group p-2">
+                        <select id="combo_itens" class="form-control mr-2" onchange="document.getElementById('text_pesquisa_item').focus()">                            
+                            <option>codeigniter</option>
+                            <option>PHP</option>
+                        </select>
+                        <input type="text" class="form-control mr-3" id="text_pesquisa_item" size="20">
+                        <button onclick="PesquisaPorItens()" class="btn btn-secondary btn-size text-left"><i class="fas fa-search mr-2"></i>Pesquisar</button>
+                    </div>                                        
+                </div>
+
+                <!-- botões -->
+                <div class="col-8">
+                    <a href="http://getbootstrap.com.br/docs/3.3/css/" class="btn btn-default btn-size m-1"><img src="images/bootstrap3.png"><br><span class="botao-texto">Bootstrap 3</span></a>
+                    <a href="http://getbootstrap.com.br/docs/4.1/getting-started/introduction/" class="btn btn-default btn-size m-1"><img src="images/bootstrap4.png"><br><span class="botao-texto">Bootstrap 4</span></a>
+                    <a href="https://fontawesome.com/v4.7.0/icons/" class="btn btn-default btn-size m-1"><img src="images/fontawesome4.png"><br><span class="botao-texto">FontAwesome 4.7.0</span></a>
+                    <a href="https://fontawesome.com/icons?d=gallery&m=free" class="btn btn-default btn-size m-1"><img src="images/fontawesome5.png"><br><span class="botao-texto">FontAwesome 5.0</span></a>
+                    <a href="https://fonts.google.com/" class="btn btn-default btn-size m-1"><img src="images/googlefonts.png"><br><span class="botao-texto">Google Fonts</span></a>
+                    <a href="https://translate.google.pt/?hl=pt-PT#" class="btn btn-default btn-size m-1"><img src="images/translator.png"><br><span class="botao-texto">Google Translator</span></a>
+                    <a href="https://www.codeigniter.com/user_guide/" class="btn btn-default btn-size m-1"><img src="images/codeigniter.png"><br><span class="botao-texto">CodeIgniter</span></a>
+                    <a href="https://www.w3schools.com/" class="btn btn-default btn-size m-1"><img src="images/w3s.png"><br><span class="botao-texto">W3 Schools</span></a>
+                    <a href="http://api.jquery.com/" class="btn btn-default btn-size m-1"><img src="images/jquery.png"><br><span class="botao-texto">jQuery</span></a>
+                    <a href="http://api.jqueryui.com/" class="btn btn-default btn-size m-1"><img src="images/jqueryui.png"><br><span class="botao-texto">jQuery UI</span></a>
+					<!-- novos 10-05-2018-->
+					<a href="https://icomoon.io/#preview-free" class="btn btn-default btn-size m-1"><img src="images/icomoon.png"><br><span class="botao-texto">iconMoon</span></a>
+					<a href="https://datatables.net/" class="btn btn-default btn-size m-1"><img src="images/datatables.png"><br><span class="botao-texto">Datatables.net</span></a>
+					<a href="http://www.daterangepicker.com/" class="btn btn-default btn-size m-1"><img src="images/date_range_picker.png"><br><span class="botao-texto">Date Range Picker</span></a>
+                    <a href="https://momentjs.com/" class="btn btn-default btn-size m-1"><img src="images/moment_js.png"><br><span class="botao-texto">MomentJS</span></a>
+                    <a href="https://bootsnipp.com/" class="btn btn-default btn-size m-1"><img src="images/bootsnipp.png"><br><span class="botao-texto">BootSnipp</span></a>
+					<a href="https://angular.io/" class="btn btn-default btn-size m-1"><img src="images/angular.png"><br><span class="botao-texto">Angular *</span></a>
+					<a href="https://sherweb.github.io/ngx-materialize/home" class="btn btn-default btn-size m-1"><img src="images/Materialize.png"><br><span class="botao-texto">Angular Materialize</span></a>
+					<a href="https://sketchboard.me/" class="btn btn-default btn-size m-1"><img src="images/sketchboard.png"><br><span class="botao-texto">Sketchboard</span></a>
+					
+                    <hr>
+                    <h3 class="mb-4"><i class="far fa-list-alt mr-3"></i>CDNs</h3>
+                        <div class="mb-3">
+                        <a class="cdn" href="http://getbootstrap.com.br/docs/4.1/getting-started/introduction/" target="_blank">Bootstrap 4.0</a>
+                        <a class="cdn" href="https://fontawesome.com/get-started" target="_blank">FontAwesome 5.x</a>                                                
+                        <a class="cdn" href="http://code.jquery.com/" target="_blank">jQuery</a>
+                        <a class="cdn" href="http://code.jquery.com/ui/" target="_blank">jQuery UI</a>
+                        </div>
+
+                        <div> <!-- antigas -->
+                            <h4 class="mb-3"><i class="fas fa-hourglass-half mr-3"></i>Antigas</h4>
+                            <a class="cdn" href="http://getbootstrap.com.br/docs/3.3/getting-started/#download" target="_blank">Bootstrap 3.3</a>
+                            <a class="cdn" href="https://www.bootstrapcdn.com/fontawesome/" target="_blank">FontAwesome 4.7.0</a>
+                        </div>
+
+                        <hr>
+                        <div>
+                            <h4><i class="far fa-clock mr-3"></i>Timestamp » Data/hora</h4>
+                            <input type="text" id="text_timestamp"><button onclick="converterTimestamp()" class="btn btn-primary ml-3 mr-3">Converter</button><span id="valor_data_hora"></span>
+                        </div>
+                                            
+                </div>
+
+            </div>        
+        <hr>
+        <p class="text-center"><small>By Tiago Rodrigues</small></p>
+    </div>
+
+</div>
+    
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <script src="main.js"></script>
+</body>
+</html>
